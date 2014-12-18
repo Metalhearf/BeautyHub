@@ -11,11 +11,12 @@
 	<script src="http://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.min.js" type="text/javascript"></script>
 	<script src="./javascripts/main.js" type="text/javascript"></script>
 	<script type="text/javascript">
-    	$(function() 
+    	function myFunction() 
     	{
     		$('#my-github-projects').html("<p> <br/> <strong>Le son est une onde</strong> <br/> Pour répondre à notre problème nous allons utiliser l’acoustique.</p>");
-        	$('#my-github-projects').loadRepositories(Yonaba/30log);
-    	});
+        	//$('#my-github-projects').loadRepositories(Yonaba/30log);
+    	}
+    	$(document).ready(myFunction);
 </script>
 </head>
 
