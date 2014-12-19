@@ -1,20 +1,15 @@
-console.log('This would be the main JS file.');
-
-jQuery.githubUser = function(username, callback) 
-{
-   jQuery.getJSON('https://api.github.com/repos/'+ username, callback);
+jQuery.githubUser = function(username, callback) {
+    jQuery.getJSON('https://api.github.com/users/'+username+'/repos?callback=?',callback)
 }
  
-jQuery.fn.loadRepositories = function(username) 
-{
+jQuery.fn.loadRepositories = function(username) {
     this.html("<span>Querying GitHub for " + username +"'s repositories...</span>");
      
     var target = this;
-    $.githubUser(username, function(data) 
-    {
+    $.githubUser(username, function(data) {
         var repos = data.data;
-        sortByName(repos);   
-     
+        sortByName(repos);
+
         var list = $('<dl/>');
         target.empty().append(list);
         $(repos).each(function() {
@@ -23,7 +18,7 @@ jQuery.fn.loadRepositories = function(username)
                 list.append('<dd>' + this.description +'</dd>');
             }
         });      
-      });
+    });
       
     function sortByName(repos) {
         repos.sort(function(a,b) {
